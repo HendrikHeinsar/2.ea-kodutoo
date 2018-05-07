@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="script.js" type="text/javascript"></script>
+		<title>GAME</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	</head>
+	<style>
+		html, 
+		body, 
+		canvas {
+			width:100%;
+			height:100%;
+			margin:0;
+			padding:0;
+		}
+	</style>
+	<body>
+		<div id="Menuu" class="container">
+			<div class="jumbotron mt-3">
+				<h1>GAME</h1>
+				<p class="lead">Mängu eesmärk on trükkida sõnad 30 sekundi jooksul õigesti nii kiiresti kui võimalik, et saavutada suurim skoor.</p>
+				<p>Kui sõna ei kirjutata täielikult lõpuni kaotab mängija 2000 punkti.</p>
+				<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+								<div class="dropdown-menu">
+										<option class="dropdown-item" value="easy" id="easyButton" onclick="difLevel()">EASY</option>
+										<option class="dropdown-item" value="medium" id="mediumButton" onclick="difLevel()">MEDIUM</option>
+										<option class="dropdown-item" value="hard" id="hardButton" onclick="difLevel()">HARD</option>
+								</div>
+							</select>
+						</div>
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" id="startButton" onclick="myFunction(1,difficultyLevel)">START</button>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div id="Leaderboard" class="container">
+				<div class="jumbotron mt-3">
+					<h1>LEADERBOARD</h1>
+					<p class="lead">THE TOP 10.</p>
+					<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Player</th>
+									<th scope="col">Score</th>
+								</tr>
+							</thead>
+							<tbody id="tableBody"></tbody>
+					</table>
+				</div>
+			</div>
+			<script>
+				drawTable();
+					//var difficultyLevel = document.getElementById("inlineFormCustomSelectPref").value;
+					var aegPraegu = new Date();
+					if (aegPraegu.getHours() > 19 || aegPraegu.getHours() < 8){
+						document.body.style.background = "#696969";
+					} else {
+						document.body.style.background = "#FFE4C4";
+					}
+					document.getElementById("Leaderboard").style.display = "none";
+					function myFunction() {
+						document.getElementById("Menuu").style.display = "none";
+						eks_de(gameStart=1, difficultyLevel);
+					}
+					function difLevel() {
+						difficultyLevel = document.getElementById("inlineFormCustomSelectPref").value;
+					}
+
+					function leaderboardButton() {
+						document.getElementById("homeButton").className = "nav-item";
+						document.getElementById("leaderboardButton").className = "nav-item active";
+						document.getElementById("Menuu").style.display = "none";
+						document.getElementById("Leaderboard").style.display = "block";
+					}
+
+					function homeButton() {
+						document.getElementById("homeButton").className = "nav-item active";
+						document.getElementById("leaderboardButton").className = "nav-item";
+						document.getElementById("Menuu").style.display = "block";
+						document.getElementById("Leaderboard").style.display = "none";
+					}
+			</script>
+			<nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
+				<a class="navbar-brand" href="">GAME</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active" id="homeButton">
+							<a class="nav-link" href="#" onclick="homeButton()" >Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item" id="leaderboardButton">
+							<a class="nav-link" href="#" onclick="leaderboardButton()" >Leaderboard</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		<canvas id="screen"></canvas>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	</body>
+</html>
