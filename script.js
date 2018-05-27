@@ -13,7 +13,7 @@ var size = initialHeight;
 var wrongCount = 0;
 var gameStart;
 var count;
-var maha = 0.2;
+var sizeDecrease = 0.2;
 var scoreTable = [localStorage.length];
 var scoreTable2 = [localStorage.length];
 var tableContent = ""; 
@@ -45,7 +45,7 @@ function eks_de () {
 	size = initialHeight;
 	wrongCount = 0;
 	count;
-	maha = 0.2;
+	sizeDecrease = 0.2;
 	scoreTable = [localStorage.length];
 	scoreTable2 = [localStorage.length];
 	tableContent = ""; 
@@ -53,11 +53,11 @@ function eks_de () {
 	console.log("Leht laetud");
 	message = "BIKINI BOTTOM.";
 	scoreMath = 0;
-	canvas = document.getElementById("screen");
-	ctx = canvas.getContext("2d");	
+	const canvas = document.getElementById("screen");
+	const ctx = canvas.getContext("2d");	
 	
-	var width = window.innerWidth;
-	var height = window.innerHeight;
+	let width = window.innerWidth;
+	let height = window.innerHeight;
 		
 	//size
 	canvas.style.width = width;
@@ -67,15 +67,15 @@ function eks_de () {
 	canvas.width = width *2;
 	canvas.height = height *2;
 
-	if (gameStart == 1){
+	if (gameStart === 1){
 		loadWordsIntoArray();
 	}	
-	if (difficultyLevel == "easy"){
-		maha = 0.2;
-	} else if (difficultyLevel == "medium"){
-		maha = 0.4;
+	if (difficultyLevel === "easy"){
+		sizeDecrease = 0.2;
+	} else if (difficultyLevel === "medium"){
+		sizeDecrease = 0.4;
 	} else {
-		maha = 0.6;
+		sizeDecrease = 0.6;
 		//epilepsy();
 	}
 }
@@ -148,7 +148,7 @@ function loadWordsIntoArray () {
 				if (gameStart == 1){
 					requestAnimFrame(animate);
 				}
-				size = size - maha;	
+				size = size - sizeDecrease;	
 				count += 1;	
 				if(gameStart == 0){
 					scoreMath = 0;
