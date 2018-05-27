@@ -6,6 +6,8 @@ Aluseks on võetud failid: http://web.zone.ee/hehe/3_tund/
 ## LOOJAD:
 Hendrik Heinsar ja Krister Riska
 
+SKEEM
+![Programmi flowchart](schema.png)
 ## Mängutöö lühikirjeldus:
 Lehe laadimisel tööle minev script kontrollib, mis kell on ning vastavalt otsustab mis värvi tuleb leheküljel taust. (See on meie lahendus nö. "nightmode'le")
 Algsel lehel on lühikirjeldus mängust ning mängijal võimalik valida mängu raskusaste. Mida raskem raskusaste seda kiiremini sõnad jooksevad ekraanil. Mäng kestab 30 sekundit, siis teavitatakse mängijat tulemusest ning näidatakse algset "menüüd" jälle. Lehel on ka all navbar, mille abil saab ennast navigeerida mängu tulemustabelisse, kus on näha 10 parimat mängijat (parimate saavutustega). Tingimusel, et mängijaid on vähem kui 10, näidatakse mängijale vastav arv parimaid tulemusi.
